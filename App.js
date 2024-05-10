@@ -10,16 +10,22 @@ import { useFonts, Comfortaa_300Light, Comfortaa_400Regular, Comfortaa_500Medium
 import { AntDesign } from '@expo/vector-icons'; 
 import { Ionicons } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
-// import Camera from './Camera';
-// import Points from './Points';
-
+import Camera from './Camera';
+import Points from './Points';
+import ChatBot from './Chatbot';
+import Toggle from "./Toggle";
+import earth from "./earth"
+import leaderboard from "./leaderboard"
+import news from "./news"
+import EcoReminder from "./EcoReminder"
+import UploadImages from "./UploadImages"
 
 /* starting page -> this is what the user will first see when they download the app. they can sign up or log in */
 function StartingPage({ navigation }){
   return (
     <View style={styles.container}>
       
-      <Text style={styles.name}>Ecodes</Text>
+      <Text style={styles.name}>Score Green</Text>
 
       <Image style={styles.logo} source={require('./assets/logo.png')} />
 
@@ -41,7 +47,9 @@ function StartingPage({ navigation }){
 function LoginPage({ navigation }) {
   return (
     <View style={styles.container2}>
+
       <Text style ={styles.loginTitle}>Log In</Text>
+      <Image style={styles.logo} source={require('./assets/login.png')} />
 
       <TextInput style ={styles.loginInput} underlineColorAndroid="transparent" placeholder='Email'/>
       <TextInput style ={styles.loginInput} underlineColorAndroid="transparent" placeholder='Password'/>
@@ -89,8 +97,9 @@ function HomePage({navigation}) {
     <View style={styles.container3}>
       
       <Image style={styles.miniLogo} source={require('./assets/logo.png')} />
-      <Text style={styles.userName}>Hi Hannah,</Text>
-      <Text style={styles.text1}>SCAN THE QR CODE. SAVE THE PLANET!</Text>
+      <Text style={styles.userName}>Hi Prakriti</Text>
+      
+      <Text style={styles.text1}>SCAN THE QR CODE. GET YOUR DISCOUNT!</Text>
       <Image style={styles.background} source={require('./assets/environment.jpg')} />
 
       <TouchableOpacity style={styles.cameraButton} onPress={() => navigation.navigate('Camera')}>
@@ -99,6 +108,14 @@ function HomePage({navigation}) {
 
       <View style={styles.navContainer}>
         <View style={styles.navBar}>
+
+
+        
+
+          <TouchableOpacity style={styles.iconBehave} onPress={() => navigation.navigate('Donation Page')}>
+          <AntDesign name="user" size={24} color="white" />
+          </TouchableOpacity>
+
           <TouchableOpacity style={styles.iconBehave} onPress={() => navigation.navigate('Points')}>
           <AntDesign name="staro" size={24} color="white" />
           </TouchableOpacity>
@@ -110,47 +127,139 @@ function HomePage({navigation}) {
           <TouchableOpacity style={styles.iconBehave} onPress={() => navigation.navigate('Profile Page')}>
           <AntDesign name="user" size={24} color="white" />
           </TouchableOpacity>
+
+          <TouchableOpacity style={styles.iconBehave} onPress={() => navigation.navigate('Our Article')}>
+          <AntDesign name="earth" size={24} color="white" />
+          </TouchableOpacity>
+
+     
+
         </View>
       </View>
     </View>
   );
 }
 
+// function ChatbotPage({ navigation }) {
+//   return (
+//     <View style={styles.container3}>
+//       <Image style={styles.miniLogo} source={require('./assets/logo.png')} />
+//       <Text style={styles.userName}>Hi Hannah,</Text>
+//       <Text style={styles.text1}>ASK ME ANYTHING ABOUT ENVIRONMENT!</Text>
+
+//       {/* Render the Chatbot component */}
+//       <Chatbot />
+
+//       <View style={styles.navContainer}>
+//         <View style={styles.navBar}>
+//           <TouchableOpacity style={styles.iconBehave} onPress={() => navigation.navigate('Points')}>
+//             <AntDesign name="staro" size={24} color="white" />
+//           </TouchableOpacity>
+
+//           <TouchableOpacity style={styles.iconBehave} onPress={() => navigation.navigate('Home Page')}>
+//             <AntDesign name="home" size={24} color="white"/>
+//           </TouchableOpacity>
+
+//           <TouchableOpacity style={styles.iconBehave} onPress={() => navigation.navigate('Profile Page')}>
+//             <AntDesign name="user" size={24} color="white" />
+//           </TouchableOpacity>
+//         </View>
+//       </View>
+//     </View>
+//   );
+// }
+
+
+
+
+// function ProfilePage({navigation}) {
+//   return (
+//     <View style={styles.container3}>
+
+//       <Image style={styles.profile} source={require('./assets/hannah.jpeg')} />
+//       <Text style={styles.userName1}>HANNAH</Text>
+//       <Ionicons style={styles.location} name="location-outline" size={30} color="black" />
+//       <Text style={styles.text4}>OAKVILLE, ON, CANADA</Text>
+
+//       <TouchableOpacity style={styles.editProfileButton} onPress={() => navigation.navigate('Sign Up Page')}>
+//       <Text style={styles.loginButtonText2}>EDIT PROFILE</Text>
+//       </TouchableOpacity>
+      
+           
+
+//       {/* <Image style={styles.reminders} source={require('./assets/reminders.png')} /> */}
+
+//       <View style={styles.br}></View>
+
+//       <View style={styles.navContainer}>
+//         <View style={styles.navBar}>
+//           <TouchableOpacity style={styles.iconBehave} onPress={() => navigation.navigate('Points')}>
+//           <AntDesign name="staro" size={24} color="white" />
+//           </TouchableOpacity>
+
+//           <TouchableOpacity style={styles.iconBehave} onPress={() => navigation.navigate('Home Page')}>
+//           <AntDesign name="home" size={24} color="white"/>
+//           </TouchableOpacity>
+
+//           <TouchableOpacity style={styles.iconBehave} onPress={() => navigation.navigate('Profile Page')}>
+//           <AntDesign name="user" size={24} color="white" />
+//           </TouchableOpacity>
+          
+//           <TouchableOpacity style={styles.iconBehave} onPress={() => navigation.navigate('Chatbot page')}>
+//           <AntDesign name="chatbot" size={24} color="white"/>
+//           </TouchableOpacity>
+
+//         </View>
+//       </View>
+//     </View>
+//   );
+// }
 function ProfilePage({navigation}) {
   return (
     <View style={styles.container3}>
 
       <Image style={styles.profile} source={require('./assets/hannah.jpeg')} />
-      <Text style={styles.userName1}>HANNAH</Text>
+      <Text style={styles.userName1}>Prakriti</Text>
       <Ionicons style={styles.location} name="location-outline" size={30} color="black" />
-      <Text style={styles.text4}>OAKVILLE, ON, CANADA</Text>
+      <Text style={styles.text4}>28 Kilo, Dhulikhel</Text>
 
       <TouchableOpacity style={styles.editProfileButton} onPress={() => navigation.navigate('Sign Up Page')}>
-      <Text style={styles.loginButtonText2}>EDIT PROFILE</Text>
+        <Text style={styles.loginButtonText2}>EDIT PROFILE</Text>
       </TouchableOpacity>
-
-      <Image style={styles.reminders} source={require('./assets/reminders.png')} />
+      
+      {/* <TouchableOpacity
+        style={styles.ToggleButton}
+        onPress={() => navigation.navigate("Toggle")}
+      >
+        <Entypo name="Toggle" size={50} color="white" />
+      </TouchableOpacity> */}
+    <EcoReminder/>
 
       <View style={styles.br}></View>
 
       <View style={styles.navContainer}>
         <View style={styles.navBar}>
           <TouchableOpacity style={styles.iconBehave} onPress={() => navigation.navigate('Points')}>
-          <AntDesign name="staro" size={24} color="white" />
+            <AntDesign name="staro" size={24} color="white" />
           </TouchableOpacity>
 
           <TouchableOpacity style={styles.iconBehave} onPress={() => navigation.navigate('Home Page')}>
-          <AntDesign name="home" size={24} color="white"/>
+            <AntDesign name="home" size={24} color="white"/>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.iconBehave} onPress={() => navigation.navigate('Profile Page')}>
-          <AntDesign name="user" size={24} color="white" />
+          <TouchableOpacity style={styles.iconBehave} onPress={() => navigation.navigate('Leaderboard')}>
+            <AntDesign name="Trophy" size={24} color="white" />
+          </TouchableOpacity>
+          
+          <TouchableOpacity style={styles.iconBehave} onPress={() => navigation.navigate('Chatbot page')}>
+            <AntDesign name="wechat" size={24} color="white"/>
           </TouchableOpacity>
         </View>
       </View>
     </View>
   );
 }
+
 
 const Stack = createNativeStackNavigator();
 
@@ -170,11 +279,19 @@ export default function App() {
         <Stack.Screen name="Starting Page" component={StartingPage} />
         <Stack.Screen name="Login Page" component={LoginPage} />
         <Stack.Screen name="Sign Up Page" component={SignUpPage} />
+        <Stack.Screen name="Toggle" component={Toggle} />
         <Stack.Screen name="Enter Your Name Page" component={EnterYourNamePage} />
         <Stack.Screen name="Home Page" component={HomePage} />
         <Stack.Screen name="Profile Page" component={ProfilePage} />
         <Stack.Screen name="Camera" component={Camera} />
         <Stack.Screen name="Points" component={Points} />
+        <Stack.Screen name="Chatbot page" component={ChatBot} />
+        <Stack.Screen name="Our Article" component={earth} />
+        <Stack.Screen name="Donation Page" component={news} />
+        <Stack.Screen name="EcoReminder" component={EcoReminder} />
+        <Stack.Screen name="Leaderboard" component={leaderboard} />
+        <Stack.Screen name="UploadImages" component={UploadImages} />
+        
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -184,41 +301,22 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#C3E2C2",
+    alignItems: "center",
+    justifyContent: "center",
   },
 
   /* STARTING PAGE ---------------------------------*/
   name: {
-    fontSize: 40,
-    fontFamily: 'Comfortaa_400Regular',
-    marginBottom: 50,
+    fontSize: 70,
+    fontFamily: "Libre Baskerville",
+    marginBottom: 5,
   },
 
   logo: {
-    width: 260,
+    width: 300,
     height: 300,
     marginBottom: 150,
-  },
-
-  loginButton: {
-    width: "42%",
-    borderRadius: 7,
-    height: 45,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "white",
-    borderWidth: 2,
-    borderColor: "#92B88F",
-    position: 'absolute',
-    left: 25,
-    top: 570,
-  },
-
-  loginButtonText: {
-    fontWeight: "bold",
-    color: '#92B88F',
   },
 
   signUpButton: {
@@ -227,58 +325,94 @@ const styles = StyleSheet.create({
     height: 45,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#80A87D",
-    position: 'absolute',
+    backgroundColor: "#5F6F52",
+    borderWidth: 2,
+    borderColor: "white",
+    position: "absolute",
     right: 25,
     top: 570,
+    marginTop: 50,
   },
 
   signUpButtonText: {
     fontWeight: "bold",
-    color: 'white',
+    color: "white",
+  },
+
+
+  loginButton: {
+    width: "42%",
+    borderRadius: 7,
+    height: 45,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#5F6F52",
+    borderWidth: 2,
+    borderColor: "white",
+    position: "absolute",
+    left: 25,
+    top: 570,
+    marginTop: 50,
+  },
+
+  loginButtonText: {
+    fontWeight: "bold",
+    color: "white",
   },
 
   /* LOGIN PAGE -----------------------------*/
   container2: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#C3E2C2',
     alignItems: 'center',
     justifyContent: 'center',
   },
 
   loginTitle: {
-    fontSize: 30,
-    fontFamily: 'Comfortaa_400Regular',
-    marginBottom: 20,
+    fontSize: 60,
+    fontFamily: "Libre Baskerville",
+    marginBottom: 5,
   },
 
-  loginInput: {
-    width: "80%",
-    backgroundColor: "white",
-    borderColor: "black",
-    marginBottom: 10,
-  },
+   loginInput: {
+  //   width: "80%",
+  //   backgroundColor: "white",
+  //   borderColor: "black",
+     marginTop: 10,
+},
 
   loginButton2: {
     width: "80%",
-    marginTop: 20,
+    marginTop: 10,
     borderRadius: 7,
     height: 45,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#80A87D",
-    marginBottom: 10,
+    //backgroundColor: "#80A87D",
+    marginBottom: 5,
+    marginTop:5,
+  
+    
+    
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#5F6F52",
+    borderWidth: 2,
+    borderColor: "white",
+    //position: "absolute",
+    // left: 25,
+    // top: 570,
   },
 
-  loginButtonText2: {
-    fontWeight: "bold",
-    color: 'white',
-  },
+  // loginButtonText2: {
+  //   fontWeight: "bold",
+  //   color: 'white',
+  // },
 
   /* HOME PAGE ---------------------------*/
   container3: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: '#C3E2C2',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -286,6 +420,7 @@ const styles = StyleSheet.create({
   navContainer: {
     position: 'absolute',
     alignItems: 'center',
+    backgroundColor: '#C3E2C2',
     bottom: 0,
   },
 
@@ -295,7 +430,7 @@ const styles = StyleSheet.create({
     width: '100%',
     justifyContent: 'space-evenly',
     borderTopWidth: 0.5,
-    borderTopColor: '#EBEBEB',
+    borderTopColor: '#C3E2C2',
     paddingTop: 7, 
     paddingBottom: 25, 
   },
@@ -336,7 +471,7 @@ const styles = StyleSheet.create({
   },
 
   background: {
-    width: '100%',
+    width: '89%',
     bottom: 30,
   },
 
